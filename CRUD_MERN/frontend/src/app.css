@@ -1,0 +1,27 @@
+.gallary img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    border:2px solid rgb(102, 102, 102);
+    box-shadow: 15px 15px 3px rgba(0,0,0,0.2);
+    transition: all 1s;
+}
+.contact{
+    background: rgb(172, 173, 214);
+}
+.contactform{
+    background:linear-gradient(rgb(240, 134, 233),rgb(230, 220, 135));
+   
+}
+.gallaryimg{
+    padding: 30px;
+    height: 340px;
+    width:340px;
+    margin: 2em;
+}
+
+.admission-form:hover{
+    transform: scale(1.032);
+    border:2px solid rgb(102, 102, 102);
+    box-shadow: 15px 15px 3px rgba(0,0,0,0.2);
+    transition: all 0.5s; 
+}

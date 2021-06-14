@@ -1,0 +1,16 @@
+import React from 'react'
+import { Button } from 'react-bootstrap';
+
+const createBrowserHistory=require("history").createBrowserHistory;
+const history = createBrowserHistory();const Readmore = () => {
+    return (
+        <div className='m-5 p-5 text-danger'>
+            Five Departments namely Chemistry, Geology, Zoology, Sociology and History have been awarded the status of the Centres of Advanced Studies. These Centres of Advanced Studies have carved a niche for themselves as centres of excellence in teaching and research in their respective areas. In addition, a good  number  of University  departments are  also receiving   grants under   the  Special   Assistance Programme of the UGC in recognition of their outstanding academic work. 10 Departments (Germanic & Romance Studies, Hindi, Persian, Geography, Music, East Asian Studies, Anthropology, Mathematics, B.R.Ambedkar, M. I.L.) are getting grants under DRS, 2 Departments (Buddhist Studies, English) are getting grants under DSA, 3 Departments (English, Buddhist Studies, Social Work) are getting grants under AISHSS and 3 Departments (African Studies, East Asian Studies, Developing Countries Research Centre) are getting grants under Area Studies Programmes. Department of Adult, Continuing Education and Extension and Women’s Studies & Development Centre of the University are also getting special funding from UGC. The University today boasts of as many as 15 big libraries apart from libraries in colleges. The University Science Instrumentation Centre (USIC) which is now situated close to the Physics and Chemistry Departments houses a number of sophisticated and high-end research instruments. These instruments are used quite frequently by Teachers and Research Scholars of postgraduate departments of the University as well as by many other institutions in Delhi and its neighbourhood. The University has recently laid fibre-optic network in the North and the South Campuses connecting all colleges and departments.
+When the University of Delhi expanded in many directions to keep pace with a rapidly growing city, South Campus was established in 1973 to facilitate access for the residents of South Delhi. It moved to its present location on Benito Juarez Road, near Dhaula Kuan, in 1984. <br/><br/> The Campus is now spread across 69 acres of green, hilly terrain and its buildings blend attractively with the natural surroundings. The various departments are located in the Faculty of Arts and the Faculty of Inter-disciplinary and Applied Sciences. S.P. Jain Centre for Management Studies is also located at the South Delhi Campus. Besides these, the Campus has a good library, a Health Centre, a Bank, a Post Office, DTC Pass Section and administrative and examination blocks. South Campus also provides some residential quarters for faculty members and the non-teaching staff. Outstation students are offered accommodation in three hostels.
+<hr/>
+<hr/>
+<Button className='m-3 px-4 py-3' onClick={history.goBack}> Go Back</Button>
+<hr/><hr/>   </div>
+    )
+}
+export default Readmore
