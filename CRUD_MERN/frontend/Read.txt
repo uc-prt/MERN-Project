@@ -1,0 +1,15 @@
+Start Backend Use Command - npm run start
+Start Frontend Use Command - npm start
+
+
+------------------------------------------------------------------------------------------------------
+
+
+//In This Project Database and Table Created Dynamically When we Insert Data in MongoDB
+//Now Only Take the Admission-- URL is /admission
+//For Update Record -- URL is /updateStudent
+//For Show Record --URL is /showStudent
+//For Delete Record -- URL is /deleteStudent
+//Parents Can Contact To Admin
+
+
