@@ -20,7 +20,6 @@ const Routing = () => {
           <Router>
           <Switch>
           <Route path='/' component={Home} exact />
-              <Route path='/showBCAres' component={ShowBCAres} exact/>
               <Route path='/about' component={About} exact/>
               <Route path='/contact' component={Contact} exact/>
               <Route path='/readmore' component={Readmore} exact/>
@@ -31,6 +30,7 @@ const Routing = () => {
               <Route path='/showStudent' component={Showstudent} exact/>
               <Route path='/deleteStudent' component={deleteStudent} exact/>
               <Route path='/updateStudent' component={updateStudent} exact/>
+              <Route path='/showBCAres' component={ShowBCAres} exact/>
 
           </Switch>
           </Router>
