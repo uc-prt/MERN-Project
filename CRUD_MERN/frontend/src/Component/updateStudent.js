@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React,{useState} from 'react'
-import {Form,Button} from 'react-bootstrap'
+import {Form,Button,Modal} from 'react-bootstrap'
 const createBrowserHistory=require("history").createBrowserHistory;
 const history = createBrowserHistory();
 const UpdateStudent = (props) => {
@@ -12,6 +12,8 @@ const UpdateStudent = (props) => {
     const [Address, setAddress] = useState('')
     const [Phone, setPhone] = useState('');
     const [Course, setCourse] = useState('')
+    const [show, setShow] = useState(false);
+
     console.log(Name);
     const submitHandler=(e)=>{
         e.preventDefault();
@@ -26,51 +28,77 @@ const UpdateStudent = (props) => {
     
     axios.post('http://localhost:7000/studentdb/updateStudent/'+id,stuData).then((res)=>{
       history.push('/showStudent');
+      handleShow();
         console.log('updated')
        
     })
 }
+//For Modal Closing
+const handleClose = () => {
+  
+  setShow(false);
+  
+}
+//For Modal Opening
+const handleShow = () => {
+  
+  setShow(true);
+}
+
+
     return (
         <div className='mt-5'>
-            <Form className='col-md-6 offset-md-3 py-5' onSubmit={submitHandler}>
-                <div className='bg-success pt-4 text-center text-light'><h2>Student Updation Form</h2></div>
-  <Form.Group>
-    <Form.Label>Student Name</Form.Label>
+          <div className='mt-5 col-md-6 offset-md-3 py-5 bg-info'>
+            <Form className='admission-form bg-light col-md-10 offset-md-1' onSubmit={submitHandler}>
+                <div className='bg-success py-3 text-center text-light'><h2>Student Updation Form</h2></div>
+             
+  <Form.Group className='my-3'>
     <Form.Control type="text" value={Name} onChange={(e)=>setName(e.target.value)} placeholder="Enter Student Name" required/>
    
   </Form.Group>
   <Form.Group>
-    <Form.Label>Father Name</Form.Label>
     <Form.Control type="text" value={F_Name} onChange={(e)=>setF_Name(e.target.value)} placeholder="Enter Father Name" required/>
 
   </Form.Group>
   <Form.Group>
-    <Form.Label>Address</Form.Label>
-    <Form.Control type="text" value={Address} onChange={(e)=>setAddress(e.target.value)} placeholder="Enter Father Name" required/>
+    <Form.Control type="text" value={Address} onChange={(e)=>setAddress(e.target.value)} placeholder="Enter Address" required/>
 
   </Form.Group>
   <Form.Group>
-    <Form.Label>Email address</Form.Label>
     <Form.Control type="text" value={Email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" required/>
     <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
     </Form.Text>
   </Form.Group>
   <Form.Group>
-    <Form.Label>Contact No.</Form.Label>
-    <Form.Control type="number" value={Phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Enter Selected Course Name" required/>
+    <Form.Control type="number" value={Phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Enter Phone No." required/>
   </Form.Group>
   <Form.Group>
     <Form.Label>Selected Courses</Form.Label>
     <Form.Control type="text" value={Course} onChange={(e)=>setCourse(e.target.value)} placeholder="Enter Selected Course Name" required/>
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" required/>
+    <Form.Check type="checkbox" label="Confirm Your Updated Data" required/>
   </Form.Group>
   <div className='bg-success pt-3 pb-3 text-center'><Button className='btn-outline-success' variant="light" type="submit">
     Submit
   </Button></div>
-</Form>
+  
+</Form></div>
+
+  {/* After Submission Modal Opening  */}
+{/* ---------------------------------------------------*/}
+<Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Admmission Response</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='text-success'>Your Updation Process Sccessfully done......!!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="info" onClick={handleClose}>
+            Done
+          </Button>
+         
+        </Modal.Footer>
+      </Modal>
         </div>
     )
 }
