@@ -8,7 +8,7 @@ import tec1 from '../images/news/tec10.jpg'
 import tec2 from '../images/news/tec9.jpg'
 import tec3 from '../images/news/tec11.jpg'
 import tec4 from '../images/news/tec2.jpg'
-
+import '../app.css'
 const Home = () => {
 
 
@@ -54,6 +54,29 @@ const Home = () => {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
+
+<div className='text-center text-danger'>
+          <h1><u>Our Certified Teachers</u></h1> 
+          </div>
+          <div className='container-fluid'>
+          <div className='row w-100'>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec1} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            </div>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec2} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            </div>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec3} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            </div>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec4} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            </div>
+            </div>
+
+        </div>
+
+
 <div className='row w-100 text-center' style={{'background':'linear-gradient(rgb(76, 248, 156),rgb(148, 121, 176))'}}>
 
 <div className='col-md-3 col-sm-6'>
@@ -71,22 +94,23 @@ const Home = () => {
 
 </div>
 <hr/>
-        <div className='text-center'>
-          <h1>Our News</h1> 
+
+        <div className='text-center text-danger'>
+          <h1><u>Our News</u></h1> 
           </div>
-          <div className='container-fluid'>
+          <div className='container-fluid '>
           <div className='row w-100'>
-            <div className='col-md-3 col-sm-6'>
+            <div className='col-md-3 col-sm-6 carddata'>
             <Cards img={tec1} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
             </div>
-            <div className='col-md-3 col-sm-6'>
-            <Cards img={tec2} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec2} title="Machine Learning" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
             </div>
-            <div className='col-md-3 col-sm-6'>
-            <Cards img={tec3} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec3} title="Data Science" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
             </div>
-            <div className='col-md-3 col-sm-6'>
-            <Cards img={tec4} title="Web Development" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
+            <div className='col-md-3 col-sm-6 carddata'>
+            <Cards img={tec4} title="Digital Electronics" text="Some quick example text to build on the card title and make up the bulk of the card's content."/>
             </div>
             </div>
 
