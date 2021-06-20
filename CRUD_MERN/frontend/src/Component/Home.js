@@ -54,7 +54,7 @@ const Home = () => {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-<div className='row w-100 text-center' style={{'background':'linear-gradient(orange,green)'}}>
+<div className='row w-100 text-center' style={{'background':'linear-gradient(rgb(76, 248, 156),rgb(148, 121, 176))'}}>
 
 <div className='col-md-3 col-sm-6'>
 <p style={{'fontSize':'7em'}}><i className="bi bi-hand-thumbs-up-fill  text-primary"></i><h2 className=' text-danger'>2m+ Subscribers</h2></p>
