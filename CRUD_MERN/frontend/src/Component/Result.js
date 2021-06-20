@@ -8,7 +8,7 @@ const Result = () => {
   const [Status, setStatus] = useState();
   const [sid, setStuId] = useState()
   const [form, setForm] = React.useState()
-  
+  // ---------------------------------------------------------------
 
   const handleExpire = () => {
     setForm((currentForm) => {
@@ -22,10 +22,9 @@ const Result = () => {
     })
   }
    
-  const ShowResult = (props) => {
-   
+  // ---------------------------------------------------------------
+  const ShowResult = (props) => { 
      const id=props.sid;
-  
     ShowBCAres({id})
   
   }
@@ -39,10 +38,9 @@ const data={
   Val:Val,
   Status:Status
 }
-// console.log(sid)
 if(Val==='bca' && Status==='regular'){
   console.log(data)
-//  ShowResult(data);
+ ShowResult(data);
 }else{
   document.writeln("Not Available")
 }
