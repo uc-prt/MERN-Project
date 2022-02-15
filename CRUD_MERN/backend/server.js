@@ -7,6 +7,7 @@ const stuRoutes=require('../backend/Routes/User');
 const conRoutes=require('../backend/Routes/Contact');
 const path = require('path'); 
 
+
 //server.js
 app.use(cors());
 app.use(express.static(path.resolve(__dirname,'../')));

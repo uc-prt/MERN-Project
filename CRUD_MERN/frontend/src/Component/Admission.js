@@ -100,6 +100,7 @@ Or
           <input type='submit' value="Import Data" className='btn btn-success btn-block text-center' />
        </form>
 </div>
+
        {/* ----------------------------------------------------------    */}
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
