@@ -12,6 +12,7 @@ const Admission = () => {
     const [Email, setEmail] = useState('');
     const [Phone, setPhone] = useState('');
     const [Course, setCourse] = useState('')
+    const [File, setFile] = useState('')
     const [show, setShow] = useState(false);
 // -----------------------------------------------------------
     const submitHandler=(e)=>{
@@ -32,6 +33,19 @@ const Admission = () => {
         history.push('/showStudent');
     });
     }
+    const submitFileHandler=(e)=>{
+      e.preventDefault();
+      
+      const stuData1={
+          File:File
+      }
+      
+  axios.post("http://localhost:7000/studentdb/upload",stuData1).then((res)=>{
+      console.log("Success:", res);
+      handleShow();
+      history.push('/showStudent');
+  });
+  }
     
   // For Modal Code
   // -----------------------------------------------------
@@ -90,20 +104,20 @@ const Admission = () => {
   </Button>
   </div>
   </div>
-  
+
 </Form>
 <div className='text-center mt-3'>
 Or
 </div>
-<form action="/upload" method='post' encType='multipart/form-data'>
+<Form method='post'  onSubmit={submitFileHandler} encType='multipart/form-data'>
          <label for='excel'>Import File Of Excel</label>
-         <input type='file' class="form-control bg-info border-0 mb-3 px-0 mx-0" name='excel'/>
+         <input type='file' onChange={(e)=>setFile(e.target.files[0])} class="form-control bg-info border-0 mb-3 px-0 mx-0" name='excel'/>
           <input type='submit' value="Import Data" className='btn btn-success btn-block text-center' />
-       </form>
+       </Form>
 </div>
 
        {/* ----------------------------------------------------------    */}
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Admmission Response</Modal.Title>
         </Modal.Header>

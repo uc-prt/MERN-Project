@@ -7,7 +7,7 @@ const stuModel=require('../Model/User');
 const resModel=require('../Model/BCAResult');
 const multer=require('multer');
 const XLSX=require('xlsx');
-
+const path = require('path'); 
 // SET STORAGE
 var storage = multer.diskStorage({  
     destination:(req,file,cb)=>{  
@@ -30,7 +30,7 @@ stuRoute.route('/').get((req,res)=>{
 });
 // 
 
-stuRoute.route('/upload').post(upload.single('excel'),(req,res)=>{
+stuRoute.route('/upload',upload.single('excel')).post((req,res)=>{
     var workbook=XLSX.readFile(req.file.path);
     var sheet_namelist=workbook.SheetNames;
     var x=0;
@@ -105,7 +105,7 @@ stuRoute.route('/addStudent').post((req,res)=>{
                 stuModel.findById(req.params.id,(err,student)=>{
                     if(student){
                         // return next(new Error('Unable To Find Employee With This Id'));
-                  
+                        
                         student.Name=req.body.Name;
                         student.F_Name=req.body.F_Name;
                         student.Address=req.body.Address;
