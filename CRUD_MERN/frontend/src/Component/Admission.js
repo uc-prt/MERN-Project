@@ -90,6 +90,7 @@ const Admission = () => {
   </Button>
   </div>
   </div>
+  
 </Form>
 <div className='text-center mt-3'>
 Or
