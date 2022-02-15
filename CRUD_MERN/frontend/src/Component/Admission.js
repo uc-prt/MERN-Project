@@ -32,6 +32,7 @@ const Admission = () => {
         history.push('/showStudent');
     });
     }
+    
   // For Modal Code
   // -----------------------------------------------------
     const handleClose = () => {
@@ -90,6 +91,14 @@ const Admission = () => {
   </div>
   </div>
 </Form>
+<div className='text-center mt-3'>
+Or
+</div>
+<form action="/upload" method='post' encType='multipart/form-data'>
+         <label for='excel'>Import File Of Excel</label>
+         <input type='file' class="form-control bg-info border-0 mb-3 px-0 mx-0" name='excel'/>
+          <input type='submit' value="Import Data" className='btn btn-success btn-block text-center' />
+       </form>
 </div>
        {/* ----------------------------------------------------------    */}
         <Modal show={show} onHide={handleClose}>

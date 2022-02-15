@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useState,useEffect} from 'react'
 import {Table} from 'react-bootstrap'
 import deleteStudent from './deleteStudent';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 const Showstudent = () => {
 const [students, setStudent] = useState([]);
 const createBrowserHistory=require("history").createBrowserHistory;
@@ -27,8 +28,15 @@ const Update=(id)=>{
 }
     return (
         <div className='mt-5 pt-4 mb-5 pb-5'>
+            <ReactHTMLTableToExcel
+                    id="table-to-xls-btn"
+                    className="btn btn-success float-right download-table-xls-button"
+                    table="stu_table"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Export to excel"/>
             <div className='bg-primary text-center text-light p-3'><h3>Students Record</h3></div>
-        <Table border='1' responsive style={{'border':'1px solid blue'}}>
+        <Table border='1' id="stu_table" responsive style={{'border':'1px solid blue'}}>
         <thead>
         <tr>
         <th>Id</th>

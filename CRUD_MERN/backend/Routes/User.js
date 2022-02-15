@@ -2,10 +2,22 @@ const express=require('express');
 const mongoose = require('mongoose');
 const app=express();
 const stuRoute=express.Router();
-
 const courseModel=require('../Model/Course');
 const stuModel=require('../Model/User');
 const resModel=require('../Model/BCAResult');
+const multer=require('multer');
+const XLSX=require('xlsx');
+
+// SET STORAGE
+var storage = multer.diskStorage({  
+    destination:(req,file,cb)=>{  
+    cb(null,'../uploads');  
+    },  
+    filename:(req,file,cb)=>{  
+    cb(null,file.originalname);  
+    }  
+    });  
+    var upload = multer({storage:storage});  
 
 stuRoute.route('/').get((req,res)=>{
     stuModel.find((err,student)=>{
@@ -17,11 +29,25 @@ stuRoute.route('/').get((req,res)=>{
 })
 });
 // 
-
+stuRoute.route('/upload').post(upload.single('excel'),(req,res)=>{
+    var workbook=XLSX.readFile(req.file.path);
+    var sheet_namelist=workbook.SheetNames;
+    var x=0;
+    sheet_namelist.forEach(ele=>{
+        var xlData=XLSX.utils.sheet_to_json(workbook.Sheets(sheet_namelist[x]));
+        stuModel.insertMany(xlData,(err,data)=>{
+            if(err){
+                console.log(err);
+            }else{
+                console.log(data)
+            }
+        })
+        x++;
+    })
+    res.redirect('/showStudent');
+})
 // 
 stuRoute.route('/addStudent').post((req,res)=>{
-    
-
     let student=new stuModel({
         _id: new mongoose.Types.ObjectId(),
         Name:req.body.Name,
